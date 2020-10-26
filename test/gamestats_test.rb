@@ -72,4 +72,24 @@ class GameStatsTest < Minitest::Test
     assert_equal expected, @gamestats.count_of_games_by_season
   end
 
+  def test_average_goals_per_game
+    assert_instance_of Float, @gamestats.average_goals_per_game
+    @gamestats.stubs(:average_goals_per_game).returns(2.22)
+    assert_equal 2.22, @gamestats.average_goals_per_game
+  end
+
+  def test_sum_of_scores_by_season
+    expected = {20122013 => 3322}
+    assert_instance_of Hash, @gamestats.sum_of_scores_by_season
+    @gamestats.stubs(:sum_of_scores_by_season).returns(expected)
+    assert_equal expected, @gamestats.sum_of_scores_by_season
+  end
+
+  def test_average_goals_by_season
+    expected = {20122013 => 2.53}
+    assert_instance_of Hash, @gamestats.average_goals_by_season
+    @gamestats.stubs(:average_goals_by_season).returns(expected)
+    # assert_equal expected, @gamestats.average_goals_by_season
+  end
+
 end

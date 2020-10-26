@@ -32,7 +32,11 @@ class GameStats
   end
 
   def total_games
+<<<<<<< HEAD
     @games_table.count
+=======
+    @games_teams_table.count / 2
+>>>>>>> cb6bf159c9b58200361440c181355af60812be34
   end
 
   def percentage_home_wins

@@ -89,7 +89,7 @@ class GameStatsTest < Minitest::Test
     expected = {20122013 => 2.53}
     assert_instance_of Hash, @gamestats.average_goals_by_season
     @gamestats.stubs(:average_goals_by_season).returns(expected)
-    # assert_equal expected, @gamestats.average_goals_by_season
+    assert_equal expected, @gamestats.average_goals_by_season
   end
 
 end

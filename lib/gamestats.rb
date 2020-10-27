@@ -73,12 +73,18 @@ class GameStats
     scores_by_season
   end
 
+  def season_id
+    @games_table.map do |game|
+      game["season"]
+    end.uniq
+  end
+
   def average_goals_by_season
     goals_per_season = {}
-    @games_table.each do |game|
-        if goals_per_season[game["season"]]
-        else goals_per_season[game["season"]]= (sum_of_scores_by_season[game["season"]] /
-                                               count_of_games_by_season[game["season"]].to_f).round(2)
+    season_id.each do |season|
+        if !goals_per_season[season]
+           goals_per_season[season]= (sum_of_scores_by_season[season] /
+                                              count_of_games_by_season[season].to_f).round(2)
         end
     end
     goals_per_season

@@ -92,4 +92,9 @@ class GameStatsTest < Minitest::Test
     assert_equal expected, @gamestats.average_goals_by_season
   end
 
+  def test_season_id
+    assert_instance_of Array, @gamestats.season_id
+    @gamestats.stubs(:season_id).returns([20162017, 20142015, 20132014])
+    assert_equal [20162017, 20142015, 20132014], @gamestats.season_id
+  end
 end

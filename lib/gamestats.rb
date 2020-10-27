@@ -32,11 +32,7 @@ class GameStats
   end
 
   def total_games
-<<<<<<< HEAD
     @games_table.count
-=======
-    @games_teams_table.count / 2
->>>>>>> cb6bf159c9b58200361440c181355af60812be34
   end
 
   def percentage_home_wins
@@ -80,12 +76,12 @@ class GameStats
   def average_goals_by_season
     goals_per_season = {}
     @games_table.each do |game|
-        # require "pry"; binding.pry
-       goals_per_season[game["season"]] = (sum_of_scores_by_season[game["season"]] /
-                                          count_of_games_by_season[game["season"]].to_f).round(2)
+        if goals_per_season[game["season"]]
+        else goals_per_season[game["season"]]= (sum_of_scores_by_season[game["season"]] /
+                                               count_of_games_by_season[game["season"]].to_f).round(2)
+        end
     end
-    require "pry"; binding.pry
-    # goals_per_season
+    goals_per_season
   end
 
 end

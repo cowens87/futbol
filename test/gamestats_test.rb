@@ -64,7 +64,6 @@ class GameStatsTest < Minitest::Test
                        @gamestats.percentage_away_wins +
                        @gamestats.percentage_ties)
   end
-<<<<<<< HEAD
 
   def test_count_of_games_by_season
     expected = {20122013 => 25}
@@ -93,7 +92,4 @@ class GameStatsTest < Minitest::Test
     assert_equal expected, @gamestats.average_goals_by_season
   end
 
-=======
-  
->>>>>>> cb6bf159c9b58200361440c181355af60812be34
 end

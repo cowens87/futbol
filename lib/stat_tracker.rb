@@ -1,6 +1,10 @@
+<<<<<<< HEAD
 require './lib/game_collection'
 require './lib/team_collection'
 require './lib/game_team_collection'
+=======
+require 'csv'
+>>>>>>> b63006a7fd5ac4ba4cbae78259eb062acd7828d3
 
 class StatTracker
   attr_reader :game_collection,
@@ -8,9 +12,14 @@ class StatTracker
               :game_team_collection
 
   def self.from_csv(locations)
-    StatTracker.new(locations)
+    all_data = {}
+    locations.each do |file_name, data|
+      all_data[file_name] = read_data(data)
+    end
+    all_data
   end
 
+<<<<<<< HEAD
   def initialize(locations)
     load_collections(locations)
   end
@@ -69,5 +78,9 @@ class StatTracker
 
   def total_games_per_team_id_home
     @game_collection.total_games_per_team_id_home
+=======
+  def self.read_data(data)
+    CSV.parse(File.read(data), headers: true)
+>>>>>>> b63006a7fd5ac4ba4cbae78259eb062acd7828d3
   end
 end

@@ -1,6 +1,7 @@
 {
   "Unit Tests": {
     "coverage": {
+<<<<<<< HEAD
       "/Users/cydkyd/turing/1mod/projects/2010/futbol/test/seasonstats_test.rb": {
         "lines": [
           1,
@@ -412,5 +413,9 @@
       }
     },
     "timestamp": 1604254144
+=======
+    },
+    "timestamp": 1603939231
+>>>>>>> b63006a7fd5ac4ba4cbae78259eb062acd7828d3
   }
 }

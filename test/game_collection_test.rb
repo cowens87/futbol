@@ -1,4 +1,8 @@
 require './test/test_helper'
+require './lib/game_collection'
+require './lib/game'
+require './lib/stat_tracker'
+
 
 class GameCollectionTest < Minitest::Test
   def setup
@@ -90,10 +94,6 @@ class GameCollectionTest < Minitest::Test
   # TEAM STATS
   def test_it_can_find_wins_by_season_per_team_id
     assert_equal 1, @game_collection.wins_by_season_per_team_id(@team_id).count
-  end
-
-  def test_it_can_find_winning_games_by_team_id
-    assert_equal 2, @game_collection.winning_games(@team_id).count
   end
 
   def test_it_can_find_best_season

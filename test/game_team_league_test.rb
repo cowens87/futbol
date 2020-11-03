@@ -1,4 +1,8 @@
 require './test/test_helper'
+require './lib/game_team_league'
+require './lib/game_team_collection'
+require './lib/game_team'
+require './lib/stat_tracker'
 
 class GameTeamLeagueTest < Minitest::Test
   def setup

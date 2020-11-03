@@ -1,4 +1,5 @@
 require './test/test_helper'
+require './lib/game_team_collection'
 
 class GameTeamCollectionTest < Minitest::Test
   def setup

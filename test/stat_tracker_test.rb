@@ -111,23 +111,19 @@ class StatTrackerTest < Minitest::Test
   end
 
   def test_it_knows_highest_scoring_away
-    @stat_tracker.stubs(:highest_scoring_visitor).returns('FC Dallas')
     assert_equal 'FC Dallas', @stat_tracker.highest_scoring_visitor
   end
 
   def test_it_knows_highest_average_home
-    @stat_tracker.stubs(:highest_scoring_home_team).returns('Reign FC')
-    assert_equal 'Reign FC', @stat_tracker.highest_scoring_home_team
+    assert_equal 'New York City FC', @stat_tracker.highest_scoring_home_team
   end
 
   def test_it_knows_lowest_average_away
-    @stat_tracker.stubs(:lowest_scoring_visitor).returns('San Jose Earthquakes')
-    assert_equal 'San Jose Earthquakes', @stat_tracker.lowest_scoring_visitor
+    assert_equal 'Seattle Sounders FC', @stat_tracker.lowest_scoring_visitor
   end
 
   def test_it_knows_lowest_average_home
-    @stat_tracker.stubs(:lowest_scoring_home_team).returns('Utah Royals FC')
-    assert_equal 'Utah Royals FC', @stat_tracker.lowest_scoring_home_team
+    assert_equal 'Orlando City SC', @stat_tracker.lowest_scoring_home_team
   end
   # League Statistics Helper Methods
   def test_it_can_find_team_name

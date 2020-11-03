@@ -96,10 +96,6 @@ class GameCollectionTest < Minitest::Test
     assert_equal 1, @game_collection.wins_by_season_per_team_id(@team_id).count
   end
 
-  def test_it_can_find_winning_games_by_team_id
-    assert_equal 2, @game_collection.winning_games(@team_id).count
-  end
-
   def test_it_can_find_best_season
     assert_equal '20122013', @game_collection.best_season(@team_id)
   end

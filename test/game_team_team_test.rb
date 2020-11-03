@@ -74,5 +74,4 @@ class GameTeamTeamTest < Minitest::Test
   def test_it_can_find_fewest_goals_by_team
     assert_equal 0, @game_team_team.fewest_goals_scored('3')
   end
-
 end

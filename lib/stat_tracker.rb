@@ -1,11 +1,19 @@
 require_relative './game_collection'
 require_relative './team_collection'
 require_relative './game_team_collection'
+require_relative './game_team_game'
+require_relative './game_team_league'
+require_relative './game_team_team'
+require_relative './game_team_season'
 
 class StatTracker
   attr_reader :game_collection,
               :team_collection,
-              :game_team_collection
+              :game_team_collection,
+              :game_team_game,
+              :game_team_league,
+              :game_team_team,
+              :game_team_season
 
   def self.from_csv(locations)
     StatTracker.new(locations)
@@ -24,7 +32,7 @@ class StatTracker
     @game_team_season = GameTeamSeason.new(locations[:game_teams], self)
     @game_team_team = GameTeamTeam.new(locations[:game_teams], self)
   end
-# Game Stats
+
   def highest_total_score
     @game_collection.highest_total_score
   end
@@ -56,7 +64,7 @@ class StatTracker
   def average_goals_by_season
     @game_collection.average_goals_by_season
   end
-# Season Statistics
+
   def game_ids_per_season
     @game_collection.game_ids_per_season
   end
@@ -84,7 +92,7 @@ class StatTracker
   def fewest_tackles(season)
     @game_team_season.least_tackles(season)
   end
-# League Statistics
+
   def count_of_teams
     @team_collection.count_of_teams
   end
@@ -112,7 +120,7 @@ class StatTracker
   def lowest_scoring_home_team
     @game_team_league.lowest_scoring_home_team
   end
-# League Statistics Helper Methods
+
   def find_team_name(team_id)
     @team_collection.find_team_name(team_id)
   end
@@ -132,7 +140,7 @@ class StatTracker
   def total_games_per_team_id_home
     @game_collection.total_games_per_team_id_home
   end
-# Team Statistics
+
   def team_info(team_id)
     @team_collection.team_info(team_id)
   end

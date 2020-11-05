@@ -64,11 +64,11 @@ class GameCollectionTest < Minitest::Test
     assert_equal expected, @game_collection.average_goals_by_season
   end
 
-   def test_game_ids_per_season
-      expected = {"20122013"=>3.86}
-      assert_equal 1, @game_collection.game_ids_per_season.count
+  def test_game_ids_per_season
+     expected = {"20122013"=>3.86}
+     assert_equal 1, @game_collection.game_ids_per_season.count
   end
-  # LeagueStatistics
+
   def test_it_knows_total_games_per_team_id_away
     expected = {"3"=>7, "6"=>4, "5"=>5, "17"=>8, "16"=>7, "9"=>3, "8"=>2, "30"=>3, "26"=>6, "19"=>3, "24"=>3, "2"=>3, "15"=>3}
     assert_equal expected, @game_collection.total_games_per_team_id_away
@@ -91,7 +91,7 @@ class GameCollectionTest < Minitest::Test
     expected = {"6"=>12.0, "3"=>8.0, "5"=>9.0, "16"=>21.0, "17"=>13.0, "8"=>6.0, "9"=>7.0, "30"=>3.0, "19"=>6.0, "26"=>10.0, "24"=>10.0, "2"=>9.0, "15"=>6.0}
     assert_equal expected, @game_collection.total_goals_per_team_id_home
   end
-  # TEAM STATS
+
   def test_it_can_find_wins_by_season_per_team_id
     assert_equal 1, @game_collection.wins_by_season_per_team_id(@team_id).count
   end

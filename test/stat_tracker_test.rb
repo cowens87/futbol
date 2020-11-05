@@ -29,7 +29,6 @@ class StatTrackerTest < Minitest::Test
     assert_equal "Houston Dynamo", @stat_tracker.find_team_name("3")
   end
 
-  # Game Stats
   def test_it_calls_highest_total_score
     assert_equal 6, @stat_tracker.highest_total_score
   end
@@ -64,7 +63,6 @@ class StatTrackerTest < Minitest::Test
     assert_equal expected, @stat_tracker.average_goals_by_season
   end
 
-  # Season Stats
   def test_winningest_coach
     expected = {"John Tortorella"=>0.37, "Claude Julien"=>0.54, "Dan Bylsma"=>0.52, "Mike Babcock"=>0.47, "Joel Quenneville"=>0.54, "Paul MacLean"=>0.36, "Michel Therrien"=>0.42, "Mike Yeo"=>0.26, "Darryl Sutter"=>0.45, "Ken Hitchcock"=>0.41, "Bruce Boudreau"=>0.44, "Jack Capuano"=>0.31, "Adam Oates"=>0.4, "Todd Richards"=>0.35, "Kirk Muller"=>0.38, "Peter DeBoer"=>0.33, "Dave Tippett"=>0.33, "Ron Rolston"=>0.29, "Bob Hartley"=>0.35, "Joe Sacco"=>0.29, "Ralph Krueger"=>0.38, "Randy Carlyle"=>0.44, "Kevin Dineen"=>0.25, "Todd McLellan"=>0.37, "Barry Trotz"=>0.25, "Lindy Ruff"=>0.47, "Claude Noel"=>0.35, "Peter Laviolette"=>0.31, "Glen Gulutzan"=>0.44, "Alain Vigneault"=>0.44, "Guy Boucher"=>0.48, "Jon Cooper"=>0.2, "Martin Raymond"=>0.0, "Dan Lacroix"=>1.0}
     @stat_tracker.stubs(:coach_percentage).returns(expected)
@@ -97,13 +95,12 @@ class StatTrackerTest < Minitest::Test
     assert_equal "Orlando City SC", @stat_tracker.fewest_tackles("20122013")
   end
 
-  # League Statistics Methods
   def test_it_can_count_number_of_teams
     assert_equal 32, @stat_tracker.count_of_teams
   end
 
-  def test_it_knows_lowest_average_goals_scored_across_season
-    assert_equal 'Sporting Kansas City', @stat_tracker.best_offense
+  def test_it_knows_highest_average_goals_scored_across_season
+    assert_equal 'Houston Dynamo', @stat_tracker.best_offense
   end
 
   def test_it_knows_lowest_average_goals_scored_across_season
@@ -125,7 +122,7 @@ class StatTrackerTest < Minitest::Test
   def test_it_knows_lowest_average_home
     assert_equal 'Orlando City SC', @stat_tracker.lowest_scoring_home_team
   end
-  # League Statistics Helper Methods
+
   def test_it_can_find_team_name
     assert_equal 'Columbus Crew SC', @stat_tracker.find_team_name('53')
   end
@@ -157,7 +154,6 @@ class StatTrackerTest < Minitest::Test
     assert_equal expected, @stat_tracker.total_goals_per_team_id_home
   end
 
-# Team Stats
   def test_it_can_list_team_info
     expected = {
                 team_id: '20',

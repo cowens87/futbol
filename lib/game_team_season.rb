@@ -70,7 +70,7 @@ class GameTeamSeason < GameTeamCollection
     goals = team_scores(season, "goals")
     shots = team_scores(season, "shots")
     score_ratios = {}
-    ratios = count_coach_results(season)
+    count_coach_results(season)
     goals.keys.each do |team_id|
       score_ratios[team_id] = average(goals[team_id].to_f, shots[team_id])
     end

@@ -16,7 +16,6 @@ class TeamCollection
     @teams = data.map {|data| Team.new(data, self)}
   end
 
-# League Stats
   def count_of_teams
     @teams.count
   end
@@ -27,11 +26,10 @@ class TeamCollection
     end.team_name
   end
 
-  # Team Stats
   def team_info(team_id)
     team_data = {}
     @teams.each do |team|
-     if team_id  == team.team_id
+      if team_id  == team.team_id
        team_data = {
                   team_id: team.team_id,
                   franchise_id: team.franchise_id,

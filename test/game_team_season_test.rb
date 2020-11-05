@@ -92,5 +92,4 @@ class GameTeamSeasonTest < Minitest::Test
   def test_least_tackles
     assert_equal "Orlando City SC", @game_team_season.least_tackles("20122013")
   end
-
 end

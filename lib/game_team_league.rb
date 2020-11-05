@@ -44,7 +44,7 @@ class GameTeamLeague < GameTeamCollection
       end
     end
      highest_visitor.max_by {|team_id, avg| avg}[0]
-   end
+  end
 
    def highest_average_team_id_home
      highest_home = Hash.new {|hash_obj, key| hash_obj[key] = []}
@@ -64,9 +64,9 @@ class GameTeamLeague < GameTeamCollection
         end
     end
      lowest_visitor.min_by {|team_id, avg| avg}[0]
-   end
+  end
 
-   def lowest_average_team_id_home
+  def lowest_average_team_id_home
     lowest_home = Hash.new {|hash_obj, key| hash_obj[key] = []}
     @stat_tracker.total_goals_per_team_id_home.each do |team_id, num_goals|
       @stat_tracker.total_games_per_team_id_home.each do |id, num_games|
@@ -75,5 +75,4 @@ class GameTeamLeague < GameTeamCollection
     end
     lowest_home.min_by {|team_id, avg| avg}[0]
   end
-
 end

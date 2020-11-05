@@ -17,7 +17,7 @@ class GameCollection
     data = CSV.parse(File.read(game_path), headers: true)
     @games = data.map {|data| Game.new(data, self)}
   end
-  # Season Statistics
+
   def scores_by_game
     @games.map {|game| game.away_goals.to_i + game.home_goals.to_i}.sort
   end
@@ -69,7 +69,7 @@ class GameCollection
       (seasons_and_games[game.season] = [game.game_id])
     end
   end
-  # League Statistic
+
   def total_goals_per_team_id_away
     @games.each_with_object(Hash.new(0)) do |game, sum_goals_away|
       (sum_goals_away[game.away_team_id] = game.away_goals.to_f if sum_goals_away[game.away_team_id].nil?) ||
@@ -99,7 +99,7 @@ class GameCollection
       end
     end
   end
-# Team Statistics
+
   def best_season(team_id)
     win_percentage = Hash.new {|hash_obj, key| hash_obj[key] = []}
     wins_by_season_per_team_id(team_id).each do |season, num_wins|
@@ -119,7 +119,7 @@ class GameCollection
     end
     loss_percentage.min_by {|season, pct| pct}[0]
   end
-#Team Statistics Helpers
+
   def winning_games(team_id)
     @games.select do |game|
       (game.home_goals > game.away_goals && game.home_team_id == team_id) ||

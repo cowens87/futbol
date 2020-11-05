@@ -32,12 +32,6 @@ class GameTeamTeam < GameTeamCollection
     end
   end
 
-  def winning_games(team_id)
-   @game_teams.select do |game|
-     team_id == game.team_id && game.result == 'WIN'
-   end
-  end
-
   def losing_games(team_id)
    @game_teams.select do |game|
      team_id == game.team_id && game.result == 'LOSS'

@@ -48,5 +48,4 @@ class GameTeamGameTest < Minitest::Test
                        @game_team_game.percentage_visitor_wins +
                        @game_team_game.percentage_ties)
   end
-
 end
